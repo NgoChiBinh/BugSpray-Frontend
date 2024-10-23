@@ -15,8 +15,8 @@ npm install
 npm start
 
 ### Links
-- Frontend: https://github.com/lactosenham/COSC2634-BugSpray-FE </br>
-- Backend: https://github.com/lactosenham/COSC2634-BugSpray-BE </br>
+- Backend: https://github.com/NgoChiBinh/BugSpray-Backend </br>
+- Frontend: https://github.com/NgoChiBinh/BugSpray-Frontend </br>
 
 
 ### 1. Technologies
