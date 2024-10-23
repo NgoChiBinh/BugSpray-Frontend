@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/">
+  <%- include ('./partials/head') %>
+    <title>
+      <%= title %> | BugSpray
+    </title>
+</head>
+
+<body class="flex flex-col justify-between h-screen font-sans text-black bg-palette-1">
+  <%- include ('./partials/nav') %>
+    <!-- Pass bodyFile as filename -->
+    <div class="grow">
+      <%- include(bodyFile) %>
+      <!-- Popup -->
+      <div id="myPopup" class="popup">
+        <%- include('./partials/popup'); %>
+      </div> 
+    </div>
+
+    <%- include ('./partials/footer') %>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <!-- Chart line -->
+      <script src="js/script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+      <!-- Axios -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <!-- Utils Script -->
+      <script src="/scripts/utils/utils.js"></script>
+
+      <!-- Popup Control Script -->
+      <script src="/scripts/utils/popupScript.js"></script>
+
+      <!-- Auth Interceptor -->
+      <script src="/scripts/auth/authInterceptor.js"></script>
+
+      <!-- Logout Script -->
+      <script src="/scripts/auth/logoutScript.js"></script>
+
+      <!-- Redirect to login page if there are no tokens in localStorage -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the token exists in localStorage
+            const token = localStorage.getItem('token');
+            if (!token) {
+                // Redirect to the login page if token is not found
+                window.location.href = '/login';
+            }
+        });
+      </script>
+
+      <!-- Load all scripts -->
+      <% if(scripts) { %>
+          <% scripts.forEach(function(script) { %>
+              <script src="<%= script %>"></script>
+          <% }); %>
+      <% } %>
+
+</body>
+
+</html>

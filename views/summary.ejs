@@ -1,0 +1,93 @@
+<div class="flex-auto">
+  <div class="flex flex-col">
+    <div class="min-h-screen bg-blue-50">
+
+      <!-- Top Metrics Section -->
+      <div class="grid grid-cols-1 gap-5 p-4 md:gap-10 md:grid-cols-3">
+
+        <!-- Total Bugs Card -->
+        <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+          <div>
+            <div class="text-sm text-gray-400">Total Bugs</div>
+            <div id="totalBugsNum" class="text-3xl font-medium text-gray-600">0</div>
+          </div>
+          <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
+            <div class="text-white mt-[4px] ml-[5px]">
+              <i class="fa-solid fa-bug fa-lg"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open Bugs Card -->
+        <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+          <div>
+            <div class="text-sm text-gray-400">Open Bugs</div>
+            <div id="openBugsNum" class="text-3xl font-medium text-gray-600">0</div>
+          </div>
+          <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
+            <div class="text-white mt-[5px] ml-[6px]">
+              <i class="fa-solid fa-screwdriver-wrench fa-lg"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resolved Bugs Card -->
+        <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+          <div>
+            <div class="text-sm text-gray-400">Resolved Bugs</div>
+            <div id="resolvedBugsNum" class="text-3xl font-medium text-gray-600">0</div>
+          </div>
+          <div class="bg-blue-700 rounded-full w-[32px] h-[32px] ml-2">
+            <div class="text-white mt-[5px] ml-[6px]">
+              <i class="fa-solid fa-check fa-lg"></i>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- End of Top Metrics Section -->
+
+      <!-- Charts Section -->
+      <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-3">
+
+        <!-- Total Bugs Reported Chart -->
+        <div class="flex-col bg-white rounded shadow-sm lg:p-8 lg:col-span-2">
+          <b class="flex flex-row px-8 pt-8 text-gray-500 lg:px-0 lg:pt-0">Total Bugs Reported</b>
+          <canvas id="totalBugs" class="p-2 md:p-5"></canvas>
+        </div>
+
+        <!-- Bugs By Severity Chart -->
+        <div class="flex flex-col p-8 bg-white rounded shadow-sm">
+          <b class="flex flex-row text-gray-500">Bugs By Severity</b>
+          <canvas class="p-5" id="bugsBySeverity"></canvas>
+        </div>
+
+      </div> <!-- End of Charts Section -->
+
+      <!-- Additional Charts Section (if needed) -->
+      <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-3">
+
+        <!-- Recently Solved Bugs Chart -->
+        <div class="flex-col p-8 bg-white rounded shadow-sm lg:col-span-2">
+          <b class="flex flex-row text-gray-500">Recently Solved Bugs</b>
+          <div id="recentlySolved" class="p-5"></div>
+        </div>
+
+        <!-- Bugs By Priority Chart -->
+        <div class="flex flex-col p-8 bg-white rounded shadow-sm">
+          <b class="flex flex-row text-gray-500">Bugs By Priority</b>
+          <canvas class="p-5" id="bugsByPriority"></canvas>
+        </div>
+
+      </div> <!-- End of Additional Charts Section -->
+
+    </div>
+  </div>
+
+  <!-- Load all scripts -->
+  <% if(scripts) { %>
+    <% scripts.forEach(function(script) { %>
+      <script src="<%= script %>"></script>
+      <% }); %>
+        <% } %>
+
+</div>

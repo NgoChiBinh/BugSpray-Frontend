@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+  <base href="/">
+  <%- include ('./partials/head') %>
+    <title>
+      <%= title %>
+    </title>
+</head>
+
+<body class="bg-palette-4">
+  <!-- Pass bodyFile as filename -->
+  <%- include(bodyFile) %>
+
+  <!-- Popup -->
+  <div id="myPopup" class="popup">
+    <%- include('./partials/popup'); %>
+  </div>
+
+  <!-- Popup Control Script -->
+  <script src="/scripts/utils/popupScript.js"></script>
+
+  <!-- Close Modal Script -->
+  <script src="/scripts/utils/closeModal.js"></script>
+
+  <!-- Axios Import Script -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the token exists in localStorage
+        const token = localStorage.getItem('token');
+        if (token) {
+            // Redirect to the login page if token is not found
+            window.location.href = '/';
+        }
+    });
+  </script>
+
+  <!-- Run all scripts -->
+  <% if(scripts) { %>
+      <% scripts.forEach(function(script) { %>
+          <script src="<%= script %>"></script>
+      <% }); %>
+  <% } %>
+
+</body>
+
+</html>
